@@ -406,7 +406,7 @@
                               userInput.style.cursor = "not-allowed";
                               sendVoice.style.cursor = "not-allowed";
                               sendMessage.style.cursor = "not-allowed";
-                              if (videoPlayCount === 2 && askMailId) {
+                              if (videoPlayCount === 5 && askMailId) {
                                 console.log("videoPlayCount", videoPlayCount);
                                 userInput.style.filter = "blur(4px)";
                                 userInput.disabled = true;
@@ -520,7 +520,7 @@
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
-                      ...(videoPlayCount === 2
+                      ...(videoPlayCount === 5
                         ? {
                             phone_number: phone_number,
                             name: name,
@@ -528,7 +528,7 @@
                           }
                         : { question: message }),
                       action:
-                        videoPlayCount === 2 ? "contact_message" : "get_answer",
+                        videoPlayCount === 5 ? "contact_message" : "get_answer",
                       partner_id: "ee305956fc",
                     }),
                   }
@@ -559,7 +559,7 @@
                   sendMessage.style.display = "block";
                 }
 
-                if (videoPlayCount === 2 && askMailId) {
+                if (videoPlayCount === 5 && askMailId) {
                   videoQueue = [askContactVideoUrl];
                   console.log("videoPlayCount", videoPlayCount);
                 }
@@ -578,7 +578,7 @@
                         src: nextVideoURL,
                         type: "application/x-mpegURL",
                       });
-                      if (videoPlayCount === 2 && askMailId) {
+                      if (videoPlayCount === 5 && askMailId) {
                         // userInput.style.filter = "blur(4px)";
                         userInput.disabled = true;
                         sendVoice.style.display = "none";
@@ -601,7 +601,7 @@
                       videoPlayer
                         .play()
                         .catch(() => console.log("Video playback failed."));
-                    } else if (videoPlayCount === 1 && askMailId) {
+                    } else if (videoPlayCount === 4 && askMailId) {
                       videoPlayer.src({
                         src: askContactVideoUrl,
                         type: "application/x-mpegURL",
@@ -636,7 +636,7 @@
                       sendVoice.style.cursor = "pointer";
                       sendMessage.style.cursor = "pointer";
 
-                      if (videoPlayCount === 2 && askMailId) {
+                      if (videoPlayCount === 5 && askMailId) {
                         userInput.style.display = "none";
                         sendVoice.style.display = "none";
                         sendMessage.style.backgroundColor = bgColor;
